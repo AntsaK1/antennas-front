@@ -15,6 +15,8 @@
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
     <quarkus.platform.version>2.8.2.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <jkube.build.strategy>jib</jkube.build.strategy>
+    <jkube.generator.name>quay.io/kevin_rak/antennas-front</jkube.generator.name>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -106,6 +108,17 @@
             <maven.home>${maven.home}</maven.home>
           </systemPropertyVariables>
         </configuration>
+      </plugin>
+      <plugin>
+          <groupId>org.eclipse.jkube</groupId>
+          <artifactId>openshift-maven-plugin</artifactId>
+          <version>1.7.0</version>
+          <configuration>
+            <authConfig>
+              <username>${quay.username}</username>
+              <password>${quay.password}</password>
+            </authConfig>
+          </configuration>
       </plugin>
     </plugins>
   </build>
