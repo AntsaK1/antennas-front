@@ -113,12 +113,6 @@
           <groupId>org.eclipse.jkube</groupId>
           <artifactId>openshift-maven-plugin</artifactId>
           <version>1.7.0</version>
-          <configuration>
-            <authConfig>
-              <username>${quay.username}</username>
-              <password>${quay.password}</password>
-            </authConfig>
-          </configuration>
       </plugin>
     </plugins>
   </build>
